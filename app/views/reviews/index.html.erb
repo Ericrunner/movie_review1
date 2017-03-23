@@ -1,0 +1,24 @@
+<h2 class="text-center">欢迎来到电影评论家!</h2>
+<div class="col-md-12">
+  <div class="group">
+      <%= link_to("新增电影",new_review_path,class: "btn btn-primary pull-right")%>
+  </div>
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>电影名称</th>
+          <th>评论数</th>
+          <th>上线时间</th>
+        </tr>
+        <tbody>
+          <% @reviews.each do |review| %>
+          <tr>
+            <td><%= review.title%></td>
+            <td><%= %></td>
+            <td><%= review.created_at%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </thead>
+  </table>
+</div>

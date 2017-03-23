@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+     <div class="navbar-header">
+        <%= link_to("首页", '#', class: "navbar-brand")%>
+     </div>
+     <form class="navbar-form navbar-left"  method="post">
+         <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+         </div>
+         <button type="submit" class="btn bnt-default">Submit</button>
+     </form>
+     <ul class="nav navbar-nav navbar-right">
+        <li>
+           <%= link_to("注册",'#')%>
+        </li>
+        <li>
+           <%= link_to("登录",'#')%>
+        </li>
+     </ul>
+  </div>
+</nav>
