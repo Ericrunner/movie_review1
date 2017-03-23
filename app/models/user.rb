@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :user_favorties
-  has_many :ismyfavorties, :through => :user_favorties, :source => :review
+  has_many :user_favorites
+  has_many :my_favorites, :through => :user_favorites, :source => :review
+  def is_favorites_of?(review)
+     my_favorites.include?(review)
+  end
 end

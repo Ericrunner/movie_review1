@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
   has_many :posts
-  has_many :user_favorties
-  has_many :members, through: :user_favorties, source: :user
+  has_many :user_favorites
+  has_many :members, through: :user_favorites, source: :user
 end
