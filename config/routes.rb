@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :reviews
+  resources :reviews do
+    resources :posts
+  end
   root 'reviews#index'
 end

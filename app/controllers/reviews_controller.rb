@@ -8,6 +8,7 @@ def new
 end
 def show
   @review=Review.find(params[:id])
+  @posts=@review.posts
 end
 def create
   @review=Review.new(review_params)
