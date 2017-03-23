@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+before_action :authenticate_user! ,only: [:new,:create]
 def index
   @reviews=Review.all
 end
