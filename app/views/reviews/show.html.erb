@@ -11,19 +11,19 @@
       <% end %>
     </span>
   </div>
-  <div  style="height: 400px;border:1px;border-color:#ff0000">
+  <div  style="height: 350px;border:1px;border-color:#ff0000">
     <label style="color:#ff0000">电影简介:</label>
     <br>
     <div>
      <%= @review.description%>
     </div>
     <div>
-      <label style="color:#ff0000">电影图片:</label>
+      <label style="color:#ff0000">电影海报:</label>
       <br>
      <%= image_tag @review.avatar.url(:medium)%>
     </div>
   </div>
-  <span style="margin-top:800px;">
+  <span>
     <% if current_user && current_user.is_favorites_of?(@review) %>
        <%= link_to("取消收藏",quit_review_path(@review), method: :post, class: "btn btn-default")%>
     <% else %>

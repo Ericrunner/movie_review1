@@ -4,22 +4,22 @@
   <div class="group">
       <%= link_to("新增电影",new_review_path,class: "btn btn-primary pull-right")%>
   </div>
-  <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>电影名称</th>
-          <th>评论数</th>
-          <th>上线时间</th>
-        </tr>
-        <tbody>
-          <% @reviews.each do |review| %>
-          <tr>
-            <td><%= link_to(review.title,review_path(review))%></td>
-            <td><%= review.posts.count %></td>
-            <td><%= review.created_at%></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </thead>
-  </table>
 </div>
+
+  <div>
+      <% @reviews.each do |review|%>
+      <div class="group" style="display:inline-block; margin-bottom:20">
+        <%= image_tag review.avatar.url(:medium)%>
+        <br>
+        <label> 电影名称: </label>
+        <%= link_to(review.title,review_path(review))%>
+        <br>
+        <label> 评论数: </label>
+        <%= review.posts.count %>
+        <br>
+        <label> 上线时间: </label>
+        <%= review.created_at%>
+        <br>
+      </div>
+      <% end %>
+  </div>

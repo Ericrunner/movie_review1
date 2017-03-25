@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+before_action :authenticate_user! ,only: [:new,:create]
 def new
   @review=Review.find(params[:review_id])
   if current_user.is_favorites_of?(@review)
