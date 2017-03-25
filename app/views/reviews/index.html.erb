@@ -14,7 +14,7 @@
           <% @reviews.each do |review| %>
           <tr>
             <td><%= link_to(review.title,review_path(review))%></td>
-            <td><%= %></td>
+            <td><%= review.posts.count %></td>
             <td><%= review.created_at%></td>
           </tr>
           <% end %>

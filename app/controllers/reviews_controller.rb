@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 before_action :authenticate_user! ,only: [:new,:create,:join, :quit]
 def index
-  @reviews=Review.all
+  @reviews=Review.all.recent
 end
 def new
   @review=Review.new
@@ -22,16 +22,18 @@ def join
    @review=Review.find(params[:id])
    if !current_user.is_favorites_of?(@review)
      current_user.join!(@review)
-     redirect_to review_path(@review)
+     flash[:notice] = "收藏成功！"
    end
+   redirect_to review_path(@review)
 end
 
 def quit
    @review=Review.find(params[:id])
    if current_user.is_favorites_of?(@review)
      current_user.quit!(@review)
-     redirect_to review_path(@review)
+     flash[:alert] = "已取消收藏该电影！"
    end
+   redirect_to review_path(@review)
 end
 private
 def review_params
