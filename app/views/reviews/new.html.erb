@@ -3,8 +3,6 @@
   <div class="form-group">
     <%= f.input :title, input_html: { class: "form-control"}%>
     <%= f.input :description, input_html: { class: "form-control"} %>
-    <label class="control-label" for="image">电影传单</label>
-    <input type="file" class="file" id="image" data-show-preview="false">
   </div>
   <%= f.submit "Submit", class: "btn btn-primary", data:{ disable_with: "Submiting..."}%>
 <% end %>

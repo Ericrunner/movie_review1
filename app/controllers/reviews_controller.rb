@@ -8,7 +8,7 @@ def new
 end
 def show
   @review=Review.find(params[:id])
-  @posts=@review.posts
+  @posts=@review.posts.recent
 end
 def create
   @review=Review.new(review_params)
