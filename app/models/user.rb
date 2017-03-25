@@ -8,4 +8,12 @@ class User < ApplicationRecord
   def is_favorites_of?(review)
      my_favorites.include?(review)
   end
+
+  def join!(review)
+     my_favorites << review
+  end
+
+  def quit!(review)
+     my_favorites.delete(review)
+  end
 end

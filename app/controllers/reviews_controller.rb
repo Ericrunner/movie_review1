@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-before_action :authenticate_user! ,only: [:new,:create]
+before_action :authenticate_user! ,only: [:new,:create,:join, :quit]
 def index
   @reviews=Review.all
 end
@@ -18,7 +18,21 @@ def create
     render :new
   end
 end
+def join
+   @review=Review.find(params[:id])
+   if !current_user.is_favorites_of?(@review)
+     current_user.join!(@review)
+     redirect_to review_path(@review)
+   end
+end
 
+def quit
+   @review=Review.find(params[:id])
+   if current_user.is_favorites_of?(@review)
+     current_user.quit!(@review)
+     redirect_to review_path(@review)
+   end
+end
 private
 def review_params
   params.require(:review).permit(:title,:description)
