@@ -37,6 +37,6 @@ def quit
 end
 private
 def review_params
-  params.require(:review).permit(:title,:description)
+  params.require(:review).permit(:title,:description,:avatar)
 end
 end
