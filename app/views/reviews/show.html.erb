@@ -37,7 +37,6 @@
   <thead>
     <tr>
       <th>评论内容</th>
-      <th>评论者</th>
       <th>评论时间</th>
     </tr>
   </thead>
@@ -45,7 +44,6 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.comment%></td>
-        <td><%= current_user.email%></td>
         <td><%= post.created_at%></td>
       </tr>
     <% end %>
