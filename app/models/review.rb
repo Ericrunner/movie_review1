@@ -2,6 +2,7 @@ class Review < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :avatar, presence: true
+  belongs_to :user
   has_many :posts
   has_many :user_favorites
   has_many :members, through: :user_favorites, source: :user
